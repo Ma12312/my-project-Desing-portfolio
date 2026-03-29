@@ -1,0 +1,2374 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>马鸿章｜视觉传达设计师（包装设计）作品集</title>
+    <meta
+      name="description"
+      content="视觉传达设计｜包装设计方向｜本科应届毕业生作品集单页网站。"
+    />
+
+    <!-- 字体：免费商用（Google Fonts：Inter + Noto Sans SC） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ========== Design Tokens ========== */
+      :root {
+        /* 颜色：黑白灰 + 1 个低饱和度辅助色（不超过 3 种颜色的视觉存在） */
+        --bg: #fbfcfd;
+        --ink: #0f1115;
+        --muted: #505a68; /* 高可读性灰，确保对比度 */
+        --line: #dde5e6;
+        --surface: #f1f6f6;
+
+        --accent: #46a3a6; /* 清新但克制的辅助色（用于强调与交互） */
+
+        /* 网格与节奏（瑞士网格：12 列 + 8pt spacing） */
+        --container: 1160px;
+        --gutter: 24px;
+        --col-gap: 24px;
+        --row-gap: 24px;
+
+        --radius: 14px;
+        --radius-sm: 10px;
+        --shadow: 0 18px 60px rgba(15, 17, 21, 0.12);
+        --shadow-sm: 0 12px 30px rgba(15, 17, 21, 0.1);
+
+        /* 字体系统 */
+        --font-title: "Inter", "Noto Sans SC", system-ui, -apple-system, "Segoe UI",
+          Arial, sans-serif;
+        --font-body: "Noto Sans SC", "Inter", system-ui, -apple-system, "Segoe UI",
+          Arial, sans-serif;
+
+        /* 排版层级（H1-H6） */
+        --h1: clamp(40px, 4vw, 64px);
+        --h2: clamp(28px, 2.6vw, 40px);
+        --h3: clamp(18px, 1.8vw, 22px);
+        --h4: 16px;
+        --h5: 14px;
+        --h6: 12px;
+
+        --lh-tight: 1.12;
+        --lh: 1.6;
+
+        --track-tight: -0.02em;
+        --track: -0.01em;
+
+        --nav-h: 68px;
+
+        /* 动效（克制） */
+        --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+        --t: 220ms;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        :root {
+          --t: 0ms;
+        }
+      }
+
+      /* ========== Base ========== */
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(
+            820px 540px at 14% 6%,
+            color-mix(in srgb, var(--accent) 10%, var(--bg)) 0%,
+            transparent 62%
+          ),
+          radial-gradient(
+            760px 520px at 88% 0%,
+            color-mix(in srgb, var(--accent) 7%, var(--bg)) 0%,
+            transparent 64%
+          ),
+          var(--bg);
+        font-family: var(--font-body);
+        letter-spacing: var(--track);
+        line-height: var(--lh);
+        text-rendering: geometricPrecision;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      button,
+      input {
+        font: inherit;
+      }
+
+      /* 跳过导航（可访问性） */
+      .skip-link {
+        position: absolute;
+        left: 16px;
+        top: 10px;
+        padding: 10px 12px;
+        border-radius: 10px;
+        background: var(--ink);
+        color: var(--bg);
+        transform: translateY(-200%);
+        transition: transform var(--t) var(--ease);
+        z-index: 9999;
+      }
+      .skip-link:focus {
+        transform: translateY(0);
+        outline: none;
+      }
+
+      /* ========== Swiss Grid Layout ========== */
+      .container {
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .grid12 {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--row-gap) var(--col-gap);
+        align-items: start;
+      }
+
+      /* 轻微肌理（不遮挡内容） */
+      .texture {
+        position: relative;
+      }
+      .texture::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.06;
+        mix-blend-mode: multiply;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+        background-size: 140px 140px;
+      }
+
+      /* ========== Typography ========== */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+        font-family: var(--font-title);
+        letter-spacing: var(--track-tight);
+        line-height: var(--lh-tight);
+        font-weight: 600;
+      }
+      h1 {
+        font-size: var(--h1);
+      }
+      h2 {
+        font-size: var(--h2);
+      }
+      h3 {
+        font-size: var(--h3);
+      }
+      h4 {
+        font-size: var(--h4);
+        font-weight: 600;
+      }
+      h5 {
+        font-size: var(--h5);
+        font-weight: 600;
+      }
+      h6 {
+        font-size: var(--h6);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+      p {
+        margin: 0;
+        color: var(--muted);
+      }
+      .lead {
+        font-size: 16px;
+        max-width: 62ch;
+      }
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .kicker::before {
+        content: "";
+        width: 38px;
+        height: 1px;
+        background: color-mix(in srgb, var(--line) 78%, var(--accent));
+      }
+
+      /* ========== Header / Nav ========== */
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(10px);
+        background: color-mix(in srgb, var(--bg) 86%, transparent);
+        border-bottom: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+      }
+      .nav {
+        height: var(--nav-h);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .brand {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 180px;
+      }
+      .brand strong {
+        font-family: var(--font-title);
+        letter-spacing: var(--track-tight);
+        font-weight: 600;
+        line-height: 1.1;
+      }
+      .brand span {
+        font-size: 12px;
+        color: var(--muted);
+        letter-spacing: 0.04em;
+      }
+      .navlinks {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+      .nav-toggle {
+        display: none;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 10px 12px;
+        background: var(--bg);
+        color: var(--ink);
+        cursor: pointer;
+        transition: background var(--t) var(--ease), transform var(--t) var(--ease),
+          border-color var(--t) var(--ease);
+      }
+      .nav-toggle:hover {
+        transform: translateY(-1px);
+        background: var(--surface);
+        border-color: color-mix(in srgb, var(--line) 60%, var(--accent));
+      }
+      .nav-toggle:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+      .nav-toggle-text {
+        font-size: 13px;
+        letter-spacing: 0.02em;
+        color: var(--muted);
+      }
+      .nav-toggle-icon {
+        width: 18px;
+        height: 12px;
+        position: relative;
+        display: inline-block;
+      }
+      .nav-toggle-icon::before,
+      .nav-toggle-icon::after,
+      .nav-toggle-icon span {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1.8px;
+        border-radius: 999px;
+        background: var(--ink);
+        transition: transform var(--t) var(--ease), top var(--t) var(--ease),
+          opacity var(--t) var(--ease);
+      }
+      .nav-toggle-icon::before {
+        top: 0;
+      }
+      .nav-toggle-icon span {
+        top: 5px;
+      }
+      .nav-toggle-icon::after {
+        top: 10px;
+      }
+      .nav.is-open .nav-toggle-icon::before {
+        top: 5px;
+        transform: rotate(45deg);
+      }
+      .nav.is-open .nav-toggle-icon span {
+        opacity: 0;
+      }
+      .nav.is-open .nav-toggle-icon::after {
+        top: 5px;
+        transform: rotate(-45deg);
+      }
+      .navlinks a {
+        position: relative;
+        padding: 10px 12px;
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 13px;
+        letter-spacing: 0.02em;
+        transition: background var(--t) var(--ease), color var(--t) var(--ease);
+      }
+      .navlinks a:hover {
+        background: var(--surface);
+        color: var(--ink);
+      }
+      .navlinks a:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+      .navlinks a[aria-current="true"] {
+        background: var(--surface);
+        color: var(--ink);
+      }
+
+      /* ========== Sections ========== */
+      section {
+        scroll-margin-top: calc(var(--nav-h) + 18px);
+      }
+      .section {
+        padding: 84px 0;
+        border-top: 1px solid var(--line);
+        background:
+          linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--accent) 3%, transparent),
+            transparent 160px
+          );
+      }
+      .section:first-of-type {
+        border-top: none;
+      }
+
+      /* ========== Hero ========== */
+      .hero {
+        position: relative;
+        isolation: isolate;
+        min-height: calc(100svh - var(--nav-h));
+        display: grid;
+        align-items: center;
+        padding: 56px 0 78px;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: -1px 0 0 0;
+        pointer-events: none;
+        z-index: -1;
+        opacity: 0.8;
+        background:
+          radial-gradient(
+            1000px 640px at 18% 10%,
+            color-mix(in srgb, var(--accent) 16%, transparent) 0%,
+            transparent 62%
+          ),
+          radial-gradient(
+            920px 620px at 86% 18%,
+            color-mix(in srgb, var(--accent) 10%, transparent) 0%,
+            transparent 64%
+          ),
+          linear-gradient(
+            90deg,
+            color-mix(in srgb, var(--line) 48%, transparent) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            0deg,
+            color-mix(in srgb, var(--line) 48%, transparent) 1px,
+            transparent 1px
+          );
+        background-size: auto, auto, 120px 120px, 120px 120px;
+        background-position: center, center, 14px 14px, 14px 14px;
+        -webkit-mask-image: radial-gradient(circle at 50% 25%, #000 0%, transparent 74%);
+        mask-image: radial-gradient(circle at 50% 25%, #000 0%, transparent 74%);
+      }
+      .hero .grid12 {
+        align-items: end;
+      }
+      .hero-left {
+        grid-column: 1 / span 8;
+      }
+      .hero-right {
+        grid-column: 9 / span 4;
+        display: grid;
+        gap: 14px;
+        justify-items: start;
+      }
+      .role {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--ink);
+        background: linear-gradient(
+          180deg,
+          color-mix(in srgb, var(--surface) 90%, transparent),
+          color-mix(in srgb, var(--surface) 75%, transparent)
+        );
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 10px 14px;
+        font-size: 13px;
+        letter-spacing: 0.02em;
+      }
+      .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+      .hero h1 {
+        margin-top: 16px;
+      }
+      .hero .slogan {
+        margin-top: 18px;
+        font-size: 16px;
+        max-width: 64ch;
+      }
+      .cta {
+        display: inline-flex;
+        gap: 10px;
+        align-items: center;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: var(--bg);
+        transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease),
+          border-color var(--t) var(--ease);
+      }
+      .cta:hover {
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-sm);
+        border-color: color-mix(in srgb, var(--line) 60%, var(--accent));
+      }
+      .cta:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+      .cta.primary {
+        border-color: color-mix(in srgb, var(--accent) 70%, var(--line));
+        background: color-mix(in srgb, var(--accent) 10%, var(--bg));
+      }
+      .cta small {
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .hero-meta {
+        margin-top: 22px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .pill {
+        border: 1px solid var(--line);
+        padding: 8px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        color: var(--muted);
+        background: color-mix(in srgb, var(--accent) 7%, var(--surface));
+      }
+
+      /* ========== About ========== */
+      .section-head {
+        position: relative;
+        display: grid;
+        gap: 14px;
+        margin-bottom: 28px;
+        padding-right: 170px;
+      }
+      .section-head::after {
+        content: "";
+        position: absolute;
+        top: -6px;
+        right: 0;
+        width: 152px;
+        height: 44px;
+        border-radius: 14px;
+        border: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
+        background:
+          radial-gradient(
+            circle at 22% 48%,
+            color-mix(in srgb, var(--accent) 40%, transparent) 0 2px,
+            transparent 2px 18px
+          ),
+          radial-gradient(
+            circle at 68% 62%,
+            color-mix(in srgb, var(--accent) 30%, transparent) 0 2px,
+            transparent 2px 18px
+          ),
+          repeating-linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--accent) 16%, transparent) 0 8px,
+            transparent 8px 16px
+          );
+        opacity: 0.55;
+        pointer-events: none;
+      }
+      .about-left {
+        grid-column: 1 / span 5;
+      }
+      .about-right {
+        grid-column: 6 / span 7;
+        display: grid;
+        gap: 16px;
+      }
+      .about-card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 18px 18px;
+        background: linear-gradient(
+          180deg,
+          color-mix(in srgb, var(--accent) 6%, var(--surface)),
+          var(--bg)
+        );
+      }
+      .value-card {
+        position: relative;
+        border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+        background: linear-gradient(
+          180deg,
+          color-mix(in srgb, var(--accent) 12%, var(--surface)),
+          var(--bg)
+        );
+      }
+      .value-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(
+          180deg,
+          color-mix(in srgb, var(--accent) 95%, #000),
+          color-mix(in srgb, var(--accent) 60%, var(--bg))
+        );
+      }
+      .value-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .value-tag {
+        border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--line));
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: color-mix(in srgb, var(--accent) 70%, var(--ink));
+        background: color-mix(in srgb, var(--accent) 10%, var(--bg));
+        white-space: nowrap;
+      }
+      .value-list {
+        margin: 12px 0 0;
+        padding-left: 18px;
+        display: grid;
+        gap: 10px;
+        color: var(--muted);
+      }
+      .value-list li::marker {
+        color: var(--accent);
+      }
+      .value-list b {
+        color: var(--ink);
+        font-family: var(--font-title);
+        letter-spacing: var(--track-tight);
+        font-weight: 600;
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px 18px;
+        margin-top: 14px;
+      }
+      .kv {
+        display: grid;
+        gap: 6px;
+      }
+      .kv b {
+        font-family: var(--font-title);
+        font-weight: 600;
+        letter-spacing: var(--track-tight);
+      }
+      .kv span {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      /* ========== Projects ========== */
+      .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 16px 0 24px;
+      }
+      .chip {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 10px 12px;
+        font-size: 13px;
+        color: var(--muted);
+        background: var(--bg);
+        transition: background var(--t) var(--ease), color var(--t) var(--ease),
+          border-color var(--t) var(--ease), transform var(--t) var(--ease);
+      }
+      .chip:hover {
+        background: var(--surface);
+        color: var(--ink);
+      }
+      .chip[aria-pressed="true"] {
+        border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+        color: var(--ink);
+        background: color-mix(in srgb, var(--accent) 10%, var(--bg));
+      }
+      .chip:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+      .card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        overflow: clip;
+        background: var(--bg);
+        will-change: transform;
+        transform-origin: center;
+        transition: transform 300ms var(--ease), box-shadow 300ms var(--ease),
+          border-color 300ms var(--ease);
+      }
+      .card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 28px 90px rgba(15, 17, 21, 0.18);
+        border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+        z-index: 2;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .card {
+          transition: none;
+        }
+      }
+      .card:focus-within {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
+      .cover {
+        aspect-ratio: 4 / 3;
+        background: var(--surface);
+        border-bottom: 1px solid var(--line);
+        position: relative;
+      }
+      .cover::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            460px 260px at 16% 24%,
+            color-mix(in srgb, var(--accent) 14%, transparent) 0%,
+            transparent 62%
+          ),
+          linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--accent) 6%, transparent),
+            transparent 60%
+          );
+        opacity: 0.75;
+      }
+      .cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .cover img[data-fit="contain"] {
+        object-fit: contain;
+        background: var(--bg);
+        padding: 10px;
+      }
+      .card-body {
+        padding: 14px 14px 16px;
+        display: grid;
+        gap: 8px;
+      }
+      .meta-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .type {
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .open {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: space-between;
+        width: 100%;
+        border: none;
+        background: transparent;
+        padding: 0;
+        cursor: pointer;
+        text-align: left;
+        color: inherit;
+      }
+      .open .arrow {
+        width: 36px;
+        height: 36px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        display: grid;
+        place-items: center;
+        transition: background var(--t) var(--ease), border-color var(--t) var(--ease);
+      }
+      .card:hover .open .arrow {
+        background: color-mix(in srgb, var(--accent) 8%, var(--bg));
+        border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+      }
+
+      /* ========== Skills ========== */
+      .skills-left {
+        grid-column: 1 / span 5;
+      }
+      .skills-right {
+        grid-column: 6 / span 7;
+        display: grid;
+        gap: 16px;
+      }
+      .bars {
+        display: grid;
+        gap: 12px;
+      }
+      .bar {
+        display: grid;
+        gap: 8px;
+      }
+      .bar-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: baseline;
+      }
+      .bar-top span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .track {
+        height: 10px;
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--surface) 85%, transparent);
+        border: 1px solid var(--line);
+        overflow: clip;
+      }
+      .fill {
+        height: 100%;
+        width: 0%;
+        border-radius: 999px;
+        background: linear-gradient(
+          90deg,
+          color-mix(in srgb, var(--accent) 70%, var(--ink)),
+          color-mix(in srgb, var(--accent) 75%, var(--bg))
+        );
+        transition: width 900ms var(--ease);
+      }
+      .badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      /* ========== Contact ========== */
+      .contact-left {
+        grid-column: 1 / span 5;
+      }
+      .contact-right {
+        grid-column: 6 / span 7;
+        display: grid;
+        gap: 16px;
+      }
+      .contact-card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 18px;
+        background: linear-gradient(
+          180deg,
+          color-mix(in srgb, var(--accent) 6%, var(--surface)),
+          var(--bg)
+        );
+        display: grid;
+        gap: 14px;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .link {
+        color: var(--ink);
+        text-decoration: underline;
+        text-decoration-color: color-mix(in srgb, var(--line) 65%, transparent);
+        text-underline-offset: 3px;
+        transition: text-decoration-color var(--t) var(--ease), color var(--t) var(--ease);
+      }
+      .link:hover {
+        color: color-mix(in srgb, var(--accent) 80%, var(--ink));
+        text-decoration-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+      }
+      .copy {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 10px 12px;
+        background: var(--bg);
+        cursor: pointer;
+        transition: transform var(--t) var(--ease), background var(--t) var(--ease),
+          border-color var(--t) var(--ease);
+      }
+      .copy:hover {
+        transform: translateY(-1px);
+        background: var(--surface);
+      }
+      .copy:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+      .qr {
+        width: 140px;
+        aspect-ratio: 1 / 1;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: var(--bg);
+        overflow: clip;
+      }
+      .qr img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* ========== Footer ========== */
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 26px 0 40px;
+      }
+      .footer-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .topbtn {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 10px 12px;
+        background: var(--bg);
+        cursor: pointer;
+        transition: background var(--t) var(--ease), transform var(--t) var(--ease);
+      }
+      .topbtn:hover {
+        background: var(--surface);
+        transform: translateY(-1px);
+      }
+      .topbtn:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+
+      /* ========== Reveal Animation ========== */
+      .reveal {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 520ms var(--ease), transform 520ms var(--ease);
+      }
+      .reveal.is-in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ========== Modal (Project Detail) ========== */
+      .modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        z-index: 1000;
+      }
+      .modal[aria-hidden="false"] {
+        display: block;
+      }
+      .backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(15, 17, 21, 0.55);
+      }
+      .dialog {
+        position: relative;
+        margin: 22px auto;
+        max-width: min(980px, calc(100% - 24px));
+        max-height: calc(100svh - 24px);
+        background: var(--bg);
+        border-radius: 18px;
+        border: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+        box-shadow: var(--shadow);
+        overflow: clip;
+        display: flex;
+        flex-direction: column;
+      }
+      .dialog-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--line);
+        background: color-mix(in srgb, var(--surface) 72%, transparent);
+      }
+      .close {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: var(--bg);
+        cursor: pointer;
+        transition: background var(--t) var(--ease), transform var(--t) var(--ease);
+      }
+      .close:hover {
+        background: var(--surface);
+        transform: translateY(-1px);
+      }
+      .close:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+      .dialog-body {
+        padding: 18px 16px 20px;
+        overflow: auto;
+      }
+      .dialog-grid {
+        display: grid;
+        grid-template-columns: 1.3fr 0.7fr;
+        gap: 16px;
+      }
+      .gallery {
+        display: grid;
+        gap: 10px;
+      }
+      .gallery-main {
+        border-radius: 14px;
+        overflow: clip;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        aspect-ratio: 16 / 10;
+      }
+      .gallery-main img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .gallery-main img[data-fit="contain"] {
+        object-fit: contain;
+        background: var(--bg);
+      }
+      .thumbs {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .thumb {
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        overflow: clip;
+        background: var(--surface);
+        cursor: pointer;
+        aspect-ratio: 16 / 10;
+        transition: transform var(--t) var(--ease), border-color var(--t) var(--ease);
+      }
+      .thumb:hover {
+        transform: translateY(-1px);
+        border-color: color-mix(in srgb, var(--accent) 50%, var(--line));
+      }
+      .thumb[aria-current="true"] {
+        border-color: color-mix(in srgb, var(--accent) 70%, var(--line));
+        outline: 2px solid color-mix(in srgb, var(--accent) 45%, transparent);
+        outline-offset: 2px;
+      }
+      .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .thumb img[data-fit="contain"] {
+        object-fit: contain;
+        background: var(--bg);
+      }
+      .info {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 14px;
+        background: linear-gradient(
+          180deg,
+          color-mix(in srgb, var(--accent) 6%, var(--surface)),
+          var(--bg)
+        );
+        display: grid;
+        gap: 12px;
+        align-content: start;
+      }
+      .info .line {
+        height: 1px;
+        background: var(--line);
+      }
+      .info dl {
+        margin: 0;
+        display: grid;
+        gap: 10px;
+      }
+      .info dt {
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 2px;
+      }
+      .info dd {
+        margin: 0;
+        color: var(--ink);
+        font-size: 14px;
+      }
+
+      /* ========== Responsive ========== */
+      @media (max-width: 980px) {
+        .hero-left {
+          grid-column: 1 / span 12;
+        }
+        .hero-right {
+          grid-column: 1 / span 12;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          justify-items: stretch;
+          margin-top: 22px;
+        }
+        .about-left,
+        .skills-left,
+        .contact-left {
+          grid-column: 1 / span 12;
+        }
+        .about-right,
+        .skills-right,
+        .contact-right {
+          grid-column: 1 / span 12;
+        }
+        .projects-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .dialog-grid {
+          grid-template-columns: 1fr;
+        }
+        .section-head {
+          padding-right: 0;
+        }
+      }
+      @media (max-width: 640px) {
+        .section {
+          padding: 64px 0;
+        }
+        .nav {
+          height: auto;
+          padding: 12px 0;
+          align-items: flex-start;
+          flex-wrap: wrap;
+        }
+        .brand {
+          min-width: 0;
+        }
+        .nav-toggle {
+          display: inline-flex;
+          margin-left: auto;
+        }
+        .navlinks {
+          width: 100%;
+          justify-content: stretch;
+          align-items: stretch;
+          flex-direction: column;
+          gap: 6px;
+          margin-top: 12px;
+          padding: 10px;
+          border: 1px solid var(--line);
+          border-radius: 14px;
+          background: color-mix(in srgb, var(--accent) 6%, var(--bg));
+          max-height: 0;
+          opacity: 0;
+          overflow: hidden;
+          pointer-events: none;
+          transform: translateY(-4px);
+          transition: max-height 360ms var(--ease), opacity 260ms var(--ease),
+            transform 260ms var(--ease);
+        }
+        .nav.is-open .navlinks {
+          max-height: 240px;
+          opacity: 1;
+          pointer-events: auto;
+          transform: translateY(0);
+        }
+        .navlinks a {
+          padding: 9px 10px;
+          border-radius: 12px;
+          background: transparent;
+        }
+        .navlinks a:hover {
+          background: color-mix(in srgb, var(--accent) 8%, var(--bg));
+        }
+        .hero-right {
+          grid-template-columns: 1fr;
+        }
+        .projects-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 12px;
+        }
+        .card-body {
+          padding: 12px 12px 14px;
+        }
+        .card-body p {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        .section-head::after {
+          display: none;
+        }
+        .dialog {
+          margin: 12px auto;
+          max-width: calc(100% - 20px);
+          max-height: calc(100svh - 24px);
+          border-radius: 16px;
+        }
+        .dialog-head {
+          padding: 12px 12px;
+        }
+        .dialog-body {
+          padding: 14px 12px 14px;
+        }
+        .dialog-grid {
+          gap: 12px;
+        }
+        .gallery-main {
+          aspect-ratio: 16 / 9;
+        }
+        .thumbs {
+          gap: 8px;
+        }
+        .info {
+          padding: 12px;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="texture">
+    <a class="skip-link" href="#projects">跳到作品集</a>
+
+    <!-- 顶部导航（锚点跳转） -->
+    <header class="header">
+      <div class="container">
+        <nav class="nav" aria-label="主导航">
+          <a class="brand" href="#top">
+            <strong>马鸿章</strong>
+            <span>Visual Communication · Packaging</span>
+          </a>
+
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-label="打开导航"
+            aria-expanded="false"
+            aria-controls="siteNav"
+          >
+            <span class="nav-toggle-icon" aria-hidden="true"><span></span></span>
+            <span class="nav-toggle-text">菜单</span>
+          </button>
+
+          <div class="navlinks" id="siteNav" role="navigation" aria-label="区块导航">
+            <a href="#about">关于</a>
+            <a href="#projects">作品</a>
+            <a href="#skills">技能</a>
+            <a href="#contact">联系</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- Hero -->
+      <section class="hero" aria-label="首屏介绍">
+        <div class="container">
+          <div class="grid12">
+            <div class="hero-left reveal">
+              <div class="role">
+                <span class="dot" aria-hidden="true"></span>
+                <span>视觉传达设计师 · 包装设计方向</span>
+              </div>
+
+              <h1>
+                马鸿章<br />
+                <span style="font-weight: 500; color: var(--muted)"
+                  >Visual Communication Designer</span
+                >
+              </h1>
+
+              <p class="slogan lead">
+                用视觉解决问题，用设计传递价值。专注包装系统与品牌触点一致性，让产品在货架上更清晰、更可信、更好卖。
+              </p>
+
+              <div class="hero-meta" aria-label="关键信息">
+                <span class="pill">本科应届 · 2027</span>
+                <span class="pill">包装 / 品牌 / 智能包装</span>
+                <span class="pill">可到岗：2027.07</span>
+              </div>
+            </div>
+
+            <div class="hero-right reveal">
+              <a class="cta primary" href="#projects" aria-label="查看作品集">
+                <span style="font-weight: 600; letter-spacing: var(--track-tight)"
+                  >查看作品</span
+                >
+                <small>6 个精选项目</small>
+              </a>
+              <a class="cta" href="#contact" aria-label="跳到联系区域">
+                <span style="font-weight: 600; letter-spacing: var(--track-tight)"
+                  >联系我</span
+                >
+                <small>邮箱 / 平台 / 微信</small>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="section" aria-label="关于我">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="kicker">About</span>
+            <h2>清晰的系统能力，克制而有力的表达</h2>
+          </div>
+
+          <div class="grid12">
+            <div class="about-left reveal">
+              <p class="lead">
+                本科应届视觉传达设计毕业生，主攻包装设计与品牌视觉系统。擅长从“产品卖点—信息结构—货架识别”出发，构建具有一致性与可落地性的包装与物料方案。
+              </p>
+            </div>
+
+            <div class="about-right reveal">
+              <div class="about-card">
+                <h3 style="margin-bottom: 10px">概览</h3>
+                <div class="about-grid" role="list">
+                  <div class="kv" role="listitem">
+                    <b>教育背景</b>
+                    <span>台州学院 · 视觉传达设计 · 本科</span>
+                  </div>
+                  <div class="kv" role="listitem">
+                    <b>核心领域</b>
+                    <span>包装设计 / 智能包装 / 平台开发</span>
+                  </div>
+                  <div class="kv" role="listitem">
+                    <b>工作方式</b>
+                    <span>先结构后风格：信息优先、系统落地</span>
+                  </div>
+                  <div class="kv" role="listitem">
+                    <b>设计理念</b>
+                    <span>用最少的元素，做最清晰的沟通</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="about-card value-card">
+                <div class="value-head">
+                  <h3>我能带来的价值</h3>
+                  <span class="value-tag" aria-hidden="true">Value</span>
+                </div>
+                <ul class="value-list">
+                  <li><b>卖点信息化</b>：将产品卖点转译为清晰可读的层级与模块，降低选择成本。</li>
+                  <li><b>系列化规则</b>：建立可扩展的包装网格与 SKU 规则，保证新增口味/规格一致落地。</li>
+                  <li><b>印前可交付</b>：输出符合印刷流程的文件与规范（出血/色彩/版式），减少返工与沟通成本。</li>
+                  <li><b>跨端延展</b>：把包装语言同步到物料与线上触点，形成统一的品牌体验。</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="section" aria-label="作品集">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="kicker">Projects</span>
+            <h2>作品集</h2>
+            <p class="lead">
+              以包装为核心：结构清晰、视觉克制、信息可读、货架识别强。点击卡片查看项目详情。
+            </p>
+          </div>
+
+          <div class="filters reveal" role="toolbar" aria-label="作品分类筛选">
+            <button class="chip" type="button" data-filter="all" aria-pressed="true">
+              全部
+            </button>
+            <button class="chip" type="button" data-filter="packaging" aria-pressed="false">
+              包装设计
+            </button>
+            <button class="chip" type="button" data-filter="branding" aria-pressed="false">
+              品牌视觉
+            </button>
+            <button class="chip" type="button" data-filter="platform" aria-pressed="false">
+              平台开发
+            </button>
+          </div>
+
+          <div class="projects-grid" id="projectsGrid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="section" aria-label="技能与荣誉">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="kicker">Skills</span>
+            <h2>技能与荣誉</h2>
+          </div>
+
+          <div class="grid12">
+            <div class="skills-left reveal">
+              <p class="lead">
+                强项是包装信息结构与视觉系统控制，其次是将包装触点扩展为可交互的智能包装体验（扫码/NFC/内容落地）。软件能力覆盖平面与基础动效展示。
+              </p>
+
+              <div style="height: 16px"></div>
+
+              <div class="about-card">
+                <h3 style="margin-bottom: 10px">软件技能</h3>
+                <div class="badges" aria-label="软件列表">
+                  <span class="pill">Photoshop</span>
+                  <span class="pill">Illustrator</span>
+                  <span class="pill">InDesign</span>
+                  <span class="pill">Figma</span>
+                  <span class="pill">After Effects</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="skills-right reveal">
+              <div class="about-card">
+                <h3 style="margin-bottom: 10px">核心能力（可视化）</h3>
+
+                <div class="bars" id="skillBars">
+                  <div class="bar">
+                    <div class="bar-top">
+                      <h4>包装信息结构</h4>
+                      <span>90</span>
+                    </div>
+                    <div class="track" aria-hidden="true">
+                      <div class="fill" data-value="90"></div>
+                    </div>
+                  </div>
+
+                  <div class="bar">
+                    <div class="bar-top">
+                      <h4>平台开发 / 交互原型</h4>
+                      <span>88</span>
+                    </div>
+                    <div class="track" aria-hidden="true">
+                      <div class="fill" data-value="88"></div>
+                    </div>
+                  </div>
+
+                  <div class="bar">
+                    <div class="bar-top">
+                      <h4>品牌一致性（触点延展）</h4>
+                      <span>82</span>
+                    </div>
+                    <div class="track" aria-hidden="true">
+                      <div class="fill" data-value="82"></div>
+                    </div>
+                  </div>
+
+                  <div class="bar">
+                    <div class="bar-top">
+                      <h4>印前规范 / 交付</h4>
+                      <span>78</span>
+                    </div>
+                    <div class="track" aria-hidden="true">
+                      <div class="fill" data-value="78"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="about-card">
+                <h3 style="margin-bottom: 10px">获奖经历</h3>
+                <div class="about-grid">
+                  <div class="kv">
+                    <b>包装之星</b>
+                    <span>二等奖</span>
+                  </div>
+                  <div class="kv">
+                    <b>世界之星学生奖</b>
+                    <span>2026</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section" aria-label="联系我">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="kicker">Contact</span>
+            <h2>联系</h2>
+            <p class="lead">欢迎品牌方设计总监与 HR 联系我获取完整 PDF 作品集与项目源文件清单。</p>
+          </div>
+
+          <div class="grid12">
+            <div class="contact-left reveal">
+              <div class="about-card">
+                <h3 style="margin-bottom: 10px">可用性说明</h3>
+                <p class="lead" style="max-width: none">
+                  全站支持键盘操作与可见焦点；锚点平滑滚动；图片懒加载；减少动效偏好自动生效。
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-right reveal">
+              <div class="contact-card">
+                <div class="row">
+                  <div>
+                    <h4>邮箱</h4>
+                    <p id="emailText" style="color: var(--muted)">3164875358@qq.com</p>
+                  </div>
+                  <button class="copy" type="button" id="copyEmailBtn" aria-label="复制邮箱">
+                    一键复制
+                  </button>
+                </div>
+
+                <div class="row" style="align-items: flex-start">
+                  <div style="display: grid; gap: 8px">
+                    <div>
+                      <h4>电话</h4>
+                      <p style="color: var(--muted); margin: 0">19858612017</p>
+                    </div>
+                  </div>
+
+                  <div style="display: grid; gap: 8px; justify-items: end">
+                    <h4>微信二维码</h4>
+                    <div class="qr" aria-label="微信二维码">
+                      <img
+                        loading="lazy"
+                        alt="微信二维码"
+                        src="./wx/微信图片_20260329154428_26_74.jpg"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer aria-label="页脚">
+      <div class="container">
+        <div class="footer-row">
+          <p style="font-size: 13px">
+            © <span id="year"></span> 马鸿章 · Visual Communication Portfolio
+          </p>
+          <button class="topbtn" type="button" id="backToTopBtn" aria-label="回到顶部">
+            回到顶部
+          </button>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 项目详情弹窗（可访问性：role="dialog" + focus trap + Esc 关闭） -->
+    <div class="modal" id="projectModal" aria-hidden="true">
+      <div class="backdrop" data-close="true" tabindex="-1" aria-hidden="true"></div>
+
+      <div
+        class="dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+        aria-describedby="modalDesc"
+      >
+        <div class="dialog-head">
+          <div style="display: grid; gap: 2px">
+            <h4 id="modalTitle">项目标题</h4>
+            <p id="modalDesc" style="font-size: 13px; margin: 0">项目简述</p>
+          </div>
+          <button class="close" type="button" id="closeModalBtn" aria-label="关闭弹窗">
+            ✕
+          </button>
+        </div>
+
+        <div class="dialog-body">
+          <div class="dialog-grid">
+            <div class="gallery" aria-label="项目图片">
+              <div class="gallery-main">
+                <img id="modalMainImg" alt="" loading="lazy" />
+              </div>
+              <div class="thumbs" id="modalThumbs"></div>
+            </div>
+
+            <aside class="info" aria-label="项目信息">
+              <dl>
+                <div>
+                  <dt>类型</dt>
+                  <dd id="modalType">—</dd>
+                </div>
+                <div>
+                  <dt>角色 / 产出</dt>
+                  <dd id="modalRole">—</dd>
+                </div>
+                <div>
+                  <dt>目标</dt>
+                  <dd id="modalGoal">—</dd>
+                </div>
+                <div>
+                  <dt>关键词</dt>
+                  <dd id="modalTags">—</dd>
+                </div>
+              </dl>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      /* =========================
+        数据：6 个项目（封面与详情图片均为“自生成 SVG 占位”，可商用）
+        替换真实图片方式：
+        - 将 cover / images 的值替换为你的图片路径（如 ./assets/p1-cover.jpg）
+        - 图片建议：封面 1600x1200；详情 1920x1200；保持统一色温与构图
+      ========================= */
+      const accent = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim();
+      const ink = getComputedStyle(document.documentElement).getPropertyValue("--ink").trim();
+      const line = getComputedStyle(document.documentElement).getPropertyValue("--line").trim();
+      const surface = getComputedStyle(document.documentElement).getPropertyValue("--surface").trim();
+
+      function svgDataUri({ title, subtitle, mark = "PACK", seed = 1 }) {
+        const safe = (s) =>
+          String(s)
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#39;");
+
+        const stripes = Array.from({ length: 10 }).map((_, i) => {
+          const x = 56 + i * 28;
+          const w = 10 + ((i + seed) % 3) * 4;
+          const o = 0.08 + ((i + seed) % 4) * 0.02;
+          return `<rect x="${x}" y="64" width="${w}" height="320" rx="6" fill="${accent}" opacity="${o}"/>`;
+        });
+
+        const svg = `
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="${surface}"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1200" rx="28" fill="url(#g)"/>
+  <rect x="80" y="80" width="1440" height="1040" rx="22" fill="#ffffff" stroke="${line}" />
+  ${stripes.join("")}
+  <text x="120" y="200" font-family="Inter, Noto Sans SC, Arial" font-size="62" font-weight="600" fill="${ink}" letter-spacing="-0.02em">
+    ${safe(title)}
+  </text>
+  <text x="120" y="270" font-family="Inter, Noto Sans SC, Arial" font-size="28" font-weight="500" fill="#5f6673" letter-spacing="-0.01em">
+    ${safe(subtitle)}
+  </text>
+  <text x="120" y="1060" font-family="Inter, Noto Sans SC, Arial" font-size="18" font-weight="600" fill="${ink}" letter-spacing="0.22em">
+    ${safe(mark)}
+  </text>
+  <text x="1500" y="1060" font-family="Inter, Noto Sans SC, Arial" font-size="18" font-weight="500" fill="#5f6673" text-anchor="end">
+    ${String(seed).padStart(2, "0")}
+  </text>
+</svg>`.trim();
+
+        return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+      }
+
+      function svgSmartPackUri({ title, subtitle, mark = "SMART PACK", seed = 1, view = "cover" }) {
+        const safe = (s) =>
+          String(s)
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#39;");
+
+        const bars = Array.from({ length: 9 }).map((_, i) => {
+          const x = 104 + i * 22;
+          const w = 8 + ((i + seed) % 3) * 3;
+          const o = 0.18 + ((i + seed) % 4) * 0.05;
+          return `<rect x="${x}" y="1028" width="${w}" height="56" rx="5" fill="${ink}" opacity="${o}"/>`;
+        });
+
+        const phone = `
+<g transform="translate(990 240)">
+  <rect x="0" y="0" width="420" height="760" rx="44" fill="#fff" stroke="${line}" stroke-width="2"/>
+  <rect x="22" y="22" width="376" height="716" rx="34" fill="${surface}" stroke="${line}"/>
+  <rect x="54" y="70" width="260" height="34" rx="12" fill="#fff" stroke="${line}"/>
+  <text x="70" y="94" font-family="Inter, Noto Sans SC, Arial" font-size="16" font-weight="600" fill="${ink}">${safe(
+    "扫码触发内容"
+  )}</text>
+  <rect x="54" y="124" width="312" height="1" fill="${line}"/>
+  <rect x="54" y="150" width="312" height="182" rx="18" fill="#fff" stroke="${line}"/>
+  <path d="M88 184h244v114H88z" fill="rgba(70,163,166,0.12)" stroke="${line}"/>
+  <text x="88" y="362" font-family="Inter, Noto Sans SC, Arial" font-size="13" font-weight="600" fill="#505a68" letter-spacing="0.12em">AR PREVIEW</text>
+  <rect x="54" y="386" width="312" height="108" rx="18" fill="#fff" stroke="${line}"/>
+  <rect x="78" y="412" width="212" height="10" rx="5" fill="${ink}" opacity="0.22"/>
+  <rect x="78" y="434" width="268" height="10" rx="5" fill="${ink}" opacity="0.16"/>
+  <rect x="78" y="456" width="240" height="10" rx="5" fill="${ink}" opacity="0.16"/>
+  <rect x="54" y="520" width="148" height="42" rx="999" fill="rgba(70,163,166,0.14)" stroke="${line}"/>
+  <text x="78" y="548" font-family="Inter, Noto Sans SC, Arial" font-size="14" font-weight="600" fill="${ink}">${safe(
+    "领取权益"
+  )}</text>
+  <rect x="216" y="520" width="150" height="42" rx="999" fill="#fff" stroke="${line}"/>
+  <text x="240" y="548" font-family="Inter, Noto Sans SC, Arial" font-size="14" font-weight="600" fill="${ink}" opacity="0.78">${safe(
+    "了解更多"
+  )}</text>
+  <rect x="54" y="592" width="312" height="120" rx="18" fill="#fff" stroke="${line}"/>
+  <text x="78" y="626" font-family="Inter, Noto Sans SC, Arial" font-size="13" font-weight="600" fill="#505a68" letter-spacing="0.12em">DATA</text>
+  <rect x="78" y="644" width="268" height="1" fill="${line}"/>
+  <rect x="78" y="664" width="212" height="10" rx="5" fill="${ink}" opacity="0.16"/>
+  <rect x="78" y="686" width="248" height="10" rx="5" fill="${ink}" opacity="0.12"/>
+</g>`.trim();
+
+        const pack = `
+<g transform="translate(640 330)">
+  <path d="M90 40l180-86 220 86v322l-180 86-220-86V40z" fill="#fff" stroke="${line}" stroke-width="2"/>
+  <path d="M270 -46v342L90 382V40l180-86z" fill="rgba(70,163,166,0.08)" stroke="${line}" stroke-width="2"/>
+  <path d="M270 -46l220 86v322l-220-86V-46z" fill="rgba(70,163,166,0.14)" stroke="${line}" stroke-width="2"/>
+  <rect x="134" y="110" width="244" height="140" rx="18" fill="${surface}" stroke="${line}"/>
+  <text x="154" y="150" font-family="Inter, Noto Sans SC, Arial" font-size="18" font-weight="700" fill="${ink}" letter-spacing="-0.02em">${safe(
+    "智能包装"
+  )}</text>
+  <rect x="154" y="166" width="198" height="1" fill="${line}"/>
+  <rect x="154" y="184" width="168" height="10" rx="5" fill="${ink}" opacity="0.16"/>
+  <rect x="154" y="204" width="204" height="10" rx="5" fill="${ink}" opacity="0.12"/>
+  <rect x="154" y="234" width="96" height="28" rx="999" fill="rgba(70,163,166,0.16)" stroke="${line}"/>
+  <text x="170" y="253" font-family="Inter, Noto Sans SC, Arial" font-size="12" font-weight="700" fill="${ink}" opacity="0.78">${safe(
+    "NFC"
+  )}</text>
+  <rect x="266" y="234" width="112" height="28" rx="999" fill="#fff" stroke="${line}"/>
+  <text x="282" y="253" font-family="Inter, Noto Sans SC, Arial" font-size="12" font-weight="700" fill="${ink}" opacity="0.78">${safe(
+    "QR"
+  )}</text>
+  <rect x="154" y="286" width="120" height="120" rx="18" fill="#fff" stroke="${line}"/>
+  <path d="M172 304h84v84h-84z" fill="${surface}" stroke="${line}"/>
+  <rect x="176" y="308" width="24" height="24" fill="${ink}" opacity="0.85"/>
+  <rect x="232" y="308" width="24" height="24" fill="${ink}" opacity="0.85"/>
+  <rect x="176" y="364" width="24" height="24" fill="${ink}" opacity="0.85"/>
+  <rect x="208" y="340" width="16" height="16" fill="${ink}" opacity="0.85"/>
+  <circle cx="350" cy="330" r="26" fill="rgba(70,163,166,0.18)" stroke="${line}"/>
+  <path d="M338 330c12-22 36-22 48 0" fill="none" stroke="${ink}" stroke-opacity="0.55" stroke-width="2"/>
+  <path d="M344 330c8-14 24-14 32 0" fill="none" stroke="${ink}" stroke-opacity="0.55" stroke-width="2"/>
+  <circle cx="350" cy="330" r="3" fill="${ink}" opacity="0.55"/>
+</g>`.trim();
+
+        const panel = `
+<g transform="translate(132 340)">
+  <rect x="0" y="0" width="520" height="692" rx="18" fill="#fff" stroke="${line}"/>
+  <text x="32" y="60" font-family="Inter, Noto Sans SC, Arial" font-size="18" font-weight="700" fill="${ink}">${safe(
+    view === "flow" ? "交互流程" : view === "admin" ? "内容配置台" : "平台概览"
+  )}</text>
+  <rect x="32" y="84" width="456" height="1" fill="${line}"/>
+  <rect x="32" y="110" width="456" height="98" rx="16" fill="${surface}" stroke="${line}"/>
+  <text x="54" y="150" font-family="Inter, Noto Sans SC, Arial" font-size="14" font-weight="700" fill="${ink}" opacity="0.82">${safe(
+    "SKU 模板 · 可复用"
+  )}</text>
+  <text x="54" y="176" font-family="Inter, Noto Sans SC, Arial" font-size="13" font-weight="600" fill="#505a68">${safe(
+    "二维码/NFC 触发内容 · 数据回流"
+  )}</text>
+  <rect x="32" y="232" width="456" height="420" rx="16" fill="#fff" stroke="${line}"/>
+  ${
+    view === "flow"
+      ? `
+  <circle cx="90" cy="312" r="20" fill="rgba(70,163,166,0.18)" stroke="${line}"/>
+  <text x="130" y="318" font-family="Inter, Noto Sans SC, Arial" font-size="14" font-weight="700" fill="${ink}">${safe("扫码 / 触碰")}</text>
+  <path d="M110 312 H 420" stroke="${line}" stroke-width="2" stroke-dasharray="8 10"/>
+  <circle cx="450" cy="312" r="20" fill="rgba(70,163,166,0.12)" stroke="${line}"/>
+  <text x="90" y="382" font-family="Inter, Noto Sans SC, Arial" font-size="14" font-weight="700" fill="${ink}">${safe("页面打开")}</text>
+  <path d="M90 402 H 450" stroke="${line}" stroke-width="2" stroke-dasharray="8 10"/>
+  <text x="90" y="472" font-family="Inter, Noto Sans SC, Arial" font-size="14" font-weight="700" fill="${ink}">${safe("内容互动")}</text>
+  <path d="M90 492 H 450" stroke="${line}" stroke-width="2" stroke-dasharray="8 10"/>
+  <text x="90" y="562" font-family="Inter, Noto Sans SC, Arial" font-size="14" font-weight="700" fill="${ink}">${safe("数据回流")}</text>
+  <rect x="90" y="588" width="360" height="36" rx="999" fill="rgba(70,163,166,0.14)" stroke="${line}"/>
+  <text x="114" y="612" font-family="Inter, Noto Sans SC, Arial" font-size="13" font-weight="700" fill="${ink}" opacity="0.8">${safe(
+    "点击率 / 复购 / 溯源"
+  )}</text>
+`
+      : view === "admin"
+        ? `
+  <rect x="62" y="280" width="396" height="56" rx="14" fill="${surface}" stroke="${line}"/>
+  <text x="86" y="315" font-family="Inter, Noto Sans SC, Arial" font-size="14" font-weight="700" fill="${ink}" opacity="0.82">${safe(
+    "SKU：北纬果园·橙"
+  )}</text>
+  <rect x="62" y="352" width="396" height="56" rx="14" fill="#fff" stroke="${line}"/>
+  <text x="86" y="387" font-family="Inter, Noto Sans SC, Arial" font-size="14" font-weight="700" fill="${ink}" opacity="0.82">${safe(
+    "内容模块：溯源 / 促销 / 会员"
+  )}</text>
+  <rect x="62" y="424" width="396" height="132" rx="14" fill="#fff" stroke="${line}"/>
+  <rect x="86" y="452" width="308" height="10" rx="5" fill="${ink}" opacity="0.16"/>
+  <rect x="86" y="474" width="342" height="10" rx="5" fill="${ink}" opacity="0.12"/>
+  <rect x="86" y="496" width="286" height="10" rx="5" fill="${ink}" opacity="0.12"/>
+  <rect x="62" y="574" width="168" height="40" rx="999" fill="rgba(70,163,166,0.14)" stroke="${line}"/>
+  <text x="86" y="600" font-family="Inter, Noto Sans SC, Arial" font-size="13" font-weight="700" fill="${ink}" opacity="0.82">${safe(
+    "发布更新"
+  )}</text>
+`
+        : `
+  <rect x="62" y="282" width="396" height="140" rx="14" fill="${surface}" stroke="${line}"/>
+  <text x="86" y="318" font-family="Inter, Noto Sans SC, Arial" font-size="13" font-weight="700" fill="#505a68" letter-spacing="0.12em">TOUCHPOINTS</text>
+  <rect x="86" y="340" width="84" height="26" rx="999" fill="rgba(70,163,166,0.16)" stroke="${line}"/>
+  <text x="104" y="358" font-family="Inter, Noto Sans SC, Arial" font-size="12" font-weight="700" fill="${ink}" opacity="0.78">${safe(
+    "QR"
+  )}</text>
+  <rect x="178" y="340" width="84" height="26" rx="999" fill="rgba(70,163,166,0.12)" stroke="${line}"/>
+  <text x="196" y="358" font-family="Inter, Noto Sans SC, Arial" font-size="12" font-weight="700" fill="${ink}" opacity="0.78">${safe(
+    "NFC"
+  )}</text>
+  <rect x="270" y="340" width="116" height="26" rx="999" fill="#fff" stroke="${line}"/>
+  <text x="288" y="358" font-family="Inter, Noto Sans SC, Arial" font-size="12" font-weight="700" fill="${ink}" opacity="0.78">${safe(
+    "AR"
+  )}</text>
+  <text x="86" y="412" font-family="Inter, Noto Sans SC, Arial" font-size="13" font-weight="700" fill="${ink}" opacity="0.82">${safe(
+    "内容模板 / 数据回流 / 可配置"
+  )}</text>
+  <rect x="62" y="446" width="396" height="190" rx="14" fill="#fff" stroke="${line}"/>
+  <text x="86" y="482" font-family="Inter, Noto Sans SC, Arial" font-size="13" font-weight="700" fill="#505a68" letter-spacing="0.12em">MODULES</text>
+  <rect x="86" y="504" width="308" height="10" rx="5" fill="${ink}" opacity="0.16"/>
+  <rect x="86" y="526" width="342" height="10" rx="5" fill="${ink}" opacity="0.12"/>
+  <rect x="86" y="548" width="286" height="10" rx="5" fill="${ink}" opacity="0.12"/>
+`
+  }
+  <rect x="32" y="670" width="456" height="1" fill="${line}"/>
+  <text x="32" y="708" font-family="Inter, Noto Sans SC, Arial" font-size="12" font-weight="700" fill="#505a68" letter-spacing="0.18em">${safe(
+    "PLATFORM"
+  )}</text>
+</g>`.trim();
+
+        const titleBlock = `
+  <text x="120" y="200" font-family="Inter, Noto Sans SC, Arial" font-size="62" font-weight="600" fill="${ink}" letter-spacing="-0.02em">
+    ${safe(title)}
+  </text>
+  <text x="120" y="270" font-family="Inter, Noto Sans SC, Arial" font-size="28" font-weight="500" fill="#505a68" letter-spacing="-0.01em">
+    ${safe(subtitle)}
+  </text>
+  <text x="120" y="1060" font-family="Inter, Noto Sans SC, Arial" font-size="18" font-weight="600" fill="${ink}" letter-spacing="0.22em">
+    ${safe(mark)}
+  </text>
+  <text x="1500" y="1060" font-family="Inter, Noto Sans SC, Arial" font-size="18" font-weight="500" fill="#505a68" text-anchor="end">
+    ${safe(view.toUpperCase())} · ${String(seed).padStart(2, "0")}
+  </text>`.trim();
+
+        const svg = `
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="${surface}"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1200" rx="28" fill="url(#g)"/>
+  <rect x="80" y="80" width="1440" height="1040" rx="22" fill="#ffffff" stroke="${line}" />
+  <rect x="80" y="80" width="1440" height="1040" rx="22" fill="rgba(70,163,166,0.06)"/>
+  ${titleBlock}
+  ${panel}
+  ${pack}
+  ${phone}
+  <g opacity="0.9">${bars.join("")}</g>
+</svg>`.trim();
+
+        return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+      }
+
+      function attachImgFallback(img) {
+        if (!img) return;
+        const fallback = img.dataset.fallback;
+        if (!fallback) return;
+        img.addEventListener(
+          "error",
+          () => {
+            if (img.src === fallback) return;
+            img.src = fallback;
+          },
+          { once: true }
+        );
+      }
+
+      const projects = [
+        {
+          id: "p1",
+          title: "棋之韵 · 酱油包装",
+          type: "包装设计",
+          category: "packaging",
+          oneLiner: "以“棋局”图形语言强化记忆点，建立系列化标签与货架识别。",
+          cover: "./images/渲染3.121.jpg",
+          fallbackCover: svgDataUri({ title: "棋之韵", subtitle: "Soy Sauce Packaging", mark: "PACKAGING", seed: 1 }),
+          images: [
+            "./images/渲染3.121.jpg",
+            "./images/eb1586dcbce14f83e8e5aa4d6317ae10.jpg",
+            "./images/3ba2acac537317851f87726decc3a630.jpg",
+          ],
+          fallbackImages: [
+            svgDataUri({ title: "棋之韵", subtitle: "Packaging Hero", mark: "DETAIL", seed: 11 }),
+            svgDataUri({ title: "棋之韵", subtitle: "Series Display", mark: "DETAIL", seed: 12 }),
+            svgDataUri({ title: "棋之韵", subtitle: "Shelf Presence", mark: "DETAIL", seed: 13 }),
+          ],
+          role: "包装视觉 / 系列化规范 / 输出交付",
+          goal: "建立具有辨识度的主视觉与系列规则，提升陈列统一性与购买决策效率。",
+          tags: ["棋盘格", "系列化", "标签系统", "货架识别"],
+        },
+        {
+          id: "p2",
+          title: "饭搭子 · 辣椒酱包装",
+          type: "包装设计",
+          category: "packaging",
+          oneLiner: "以佐餐场景为核心，建立口味区分与卖点信息结构，强化货架识别与系列统一。",
+          imageFit: "contain",
+          cover: "./images2/untitled.141.jpg",
+          fallbackCover: svgDataUri({ title: "饭搭子", subtitle: "Chili Sauce Packaging", mark: "PACKAGING", seed: 2 }),
+          images: [
+            "./images2/untitled.141.jpg",
+            "./images2/3ede69cac0bd753314f7c7509dad835c.png",
+            "./images2/60cc6e0acd28824b4ae53827e2317287.jpg",
+          ],
+          fallbackImages: [
+            svgDataUri({ title: "饭搭子", subtitle: "Packaging Hero", mark: "DETAIL", seed: 21 }),
+            svgDataUri({ title: "饭搭子", subtitle: "Series Display", mark: "DETAIL", seed: 22 }),
+            svgDataUri({ title: "饭搭子", subtitle: "Shelf Presence", mark: "DETAIL", seed: 23 }),
+          ],
+          role: "包装视觉 / 系列化规范 / 输出交付",
+          goal: "在保证品牌一致性的前提下，提升口味区分效率与卖点传达清晰度，支持系列持续扩展。",
+          tags: ["辣椒酱", "系列化", "口味区分", "信息层级"],
+        },
+        {
+          id: "p3",
+          title: "仙玉叶 · 包装设计",
+          type: "包装设计",
+          category: "packaging",
+          oneLiner: "以山水意象与清爽配色建立系列识别，在不同规格上保持统一的视觉秩序。",
+          cover: "./images3/微信图片_20250618192650.jpg",
+          fallbackCover: svgDataUri({ title: "仙玉叶", subtitle: "Packaging Design", mark: "PACKAGING", seed: 3 }),
+          images: [
+            "./images3/仙玉叶.png",
+            "./images3/微信图片_20250618192650.jpg",
+            "./images3/神仙居.png",
+          ],
+          fallbackImages: [
+            svgDataUri({ title: "仙玉叶", subtitle: "Packaging Hero", mark: "DETAIL", seed: 31 }),
+            svgDataUri({ title: "仙玉叶", subtitle: "Series Display", mark: "DETAIL", seed: 32 }),
+            svgDataUri({ title: "仙玉叶", subtitle: "Shelf Presence", mark: "DETAIL", seed: 33 }),
+          ],
+          role: "包装视觉 / 系列化规范 / 输出交付",
+          goal: "建立可延展的系列规则与信息层级，提升品牌气质与陈列统一性。",
+          tags: ["系列化", "信息层级", "风格统一", "货架识别"],
+        },
+        {
+          id: "p4",
+          title: "中药智能包装 · 交互触点设计",
+          type: "包装设计",
+          category: "packaging",
+          oneLiner: "将中药包装升级为可交互信息入口：扫码/NFC 触发溯源、用法、禁忌与复购指引。",
+          cover: "./images4/中药.154.76.jpg",
+          fallbackCover: svgDataUri({ title: "中药智能包装", subtitle: "Interactive Packaging", mark: "PACKAGING", seed: 4 }),
+          images: [
+            "./images4/中药.154.148.jpg",
+            "./images4/中药.154.76.jpg",
+            "./images4/中药1.155.1.jpg",
+          ],
+          fallbackImages: [
+            svgDataUri({ title: "中药智能包装", subtitle: "Packaging Hero", mark: "DETAIL", seed: 41 }),
+            svgDataUri({ title: "中药智能包装", subtitle: "Touchpoint Flow", mark: "DETAIL", seed: 42 }),
+            svgDataUri({ title: "中药智能包装", subtitle: "Information Panels", mark: "DETAIL", seed: 43 }),
+          ],
+          role: "包装视觉 / 交互触点 / 信息架构",
+          goal: "在合规与可读性优先的前提下，让关键用药信息更易获取，并形成可复用的智能包装模板。",
+          tags: ["智能包装", "溯源", "信息架构", "扫码/NFC"],
+        },
+        {
+          id: "p5",
+          title: "姜汤面 · 品牌重塑",
+          type: "品牌视觉",
+          category: "branding",
+          oneLiner: "围绕“暖胃即食”的核心体验，重建品牌识别与包装体系，统一线上线下触点。",
+          imageFit: "contain",
+          cover: "./images5/6e3a1c22249cbd4c1177762e2231363c.jpg",
+          fallbackCover: svgDataUri({ title: "姜汤面", subtitle: "Brand Refresh", mark: "BRANDING", seed: 5 }),
+          images: [
+            "./images5/6e3a1c22249cbd4c1177762e2231363c.jpg",
+            "./images5/展板a2_画板 1.jpg",
+            "./images5/9b0b905dcf521d4155e52d21cd74edcd.jpg",
+          ],
+          fallbackImages: [
+            svgDataUri({ title: "姜汤面", subtitle: "Brand System", mark: "DETAIL", seed: 51 }),
+            svgDataUri({ title: "姜汤面", subtitle: "Packaging Applications", mark: "DETAIL", seed: 52 }),
+            svgDataUri({ title: "姜汤面", subtitle: "Touchpoints", mark: "DETAIL", seed: 53 }),
+          ],
+          role: "品牌识别 / 包装系统 / 触点延展",
+          goal: "提升品牌辨识度与系统一致性，建立可扩展的包装与物料规范。",
+          tags: ["品牌重塑", "包装系统", "系列化", "触点延展"],
+        },
+        {
+          id: "p6",
+          title: "作品展示平台 · 平台开发",
+          type: "平台开发",
+          category: "platform",
+          oneLiner: "将作品内容模块化与可配置化：筛选、详情弹窗、响应式布局与可访问性交互一体落地。",
+          imageFit: "contain",
+          cover: "./images6/屏幕截图 2026-03-29 013719.png",
+          fallbackCover: svgDataUri({ title: "作品展示平台", subtitle: "Portfolio Platform", mark: "PLATFORM", seed: 6 }),
+          images: [
+            "./images6/屏幕截图 2026-03-29 013719.png",
+            "./images6/屏幕截图 2026-03-29 013731.png",
+            "./images6/屏幕截图 2026-03-29 013759.png",
+          ],
+          fallbackImages: [
+            svgDataUri({ title: "作品展示平台", subtitle: "Home / Grid", mark: "DETAIL", seed: 61 }),
+            svgDataUri({ title: "作品展示平台", subtitle: "Project Modal", mark: "DETAIL", seed: 62 }),
+            svgDataUri({ title: "作品展示平台", subtitle: "Mobile Layout", mark: "DETAIL", seed: 63 }),
+          ],
+          role: "界面设计 / 前端实现 / 交互规范",
+          goal: "让作品展示更可维护、可扩展：统一组件样式与交互规则，支持内容快速更新。",
+          tags: ["平台开发", "响应式", "可访问性", "组件化"],
+        },
+      ];
+
+      /* =========================
+        渲染：Projects Grid
+      ========================= */
+      const gridEl = document.getElementById("projectsGrid");
+
+      function cardTemplate(p) {
+        const safe = (s) => String(s).replaceAll('"', "&quot;");
+        const fallback = p.fallbackCover || p.cover;
+        const fit = p.imageFit || "cover";
+        return `
+<article class="card reveal" data-category="${safe(p.category)}">
+  <div class="cover">
+    <img loading="lazy" decoding="async" alt="${safe(p.title)} 封面" src="${p.cover}" data-fallback="${safe(fallback)}" data-fit="${safe(fit)}" />
+  </div>
+  <div class="card-body">
+    <div class="meta-row">
+      <span class="type">${safe(p.type)}</span>
+      <span class="type" style="color: color-mix(in srgb, var(--muted) 78%, var(--accent));">精选</span>
+    </div>
+
+    <button class="open" type="button" data-open="${safe(p.id)}" aria-label="打开 ${safe(p.title)} 项目详情">
+      <div style="display:grid; gap: 6px">
+        <h3 style="margin: 0">${safe(p.title)}</h3>
+        <p style="margin: 0; font-size: 14px">${safe(p.oneLiner)}</p>
+      </div>
+      <span class="arrow" aria-hidden="true">↗</span>
+    </button>
+  </div>
+</article>`;
+      }
+
+      function renderGrid(list) {
+        gridEl.innerHTML = list.map(cardTemplate).join("");
+        gridEl.querySelectorAll("img[data-fallback]").forEach((img) => attachImgFallback(img));
+      }
+
+      renderGrid(projects);
+
+      /* =========================
+        筛选：Filter Chips
+      ========================= */
+      const filterBtns = Array.from(document.querySelectorAll(".chip"));
+
+      function setPressed(btn) {
+        filterBtns.forEach((b) => b.setAttribute("aria-pressed", b === btn ? "true" : "false"));
+      }
+
+      function applyFilter(filter) {
+        const cards = Array.from(document.querySelectorAll(".card"));
+        cards.forEach((card) => {
+          const cat = card.getAttribute("data-category");
+          const show = filter === "all" || filter === cat;
+          card.style.display = show ? "" : "none";
+        });
+      }
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const filter = btn.dataset.filter;
+          setPressed(btn);
+          applyFilter(filter);
+        });
+      });
+
+      /* =========================
+        Modal：可访问性弹窗（Esc / 点击遮罩关闭 / 焦点陷阱）
+      ========================= */
+      const modal = document.getElementById("projectModal");
+      const backdrop = modal.querySelector(".backdrop");
+      const closeBtn = document.getElementById("closeModalBtn");
+
+      const modalTitle = document.getElementById("modalTitle");
+      const modalDesc = document.getElementById("modalDesc");
+      const modalMainImg = document.getElementById("modalMainImg");
+      const modalThumbs = document.getElementById("modalThumbs");
+
+      const modalType = document.getElementById("modalType");
+      const modalRole = document.getElementById("modalRole");
+      const modalGoal = document.getElementById("modalGoal");
+      const modalTags = document.getElementById("modalTags");
+
+      let lastFocus = null;
+
+      function getFocusable(container) {
+        return Array.from(
+          container.querySelectorAll(
+            'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          )
+        );
+      }
+
+      function openModal(projectId) {
+        const p = projects.find((x) => x.id === projectId);
+        if (!p) return;
+
+        lastFocus = document.activeElement;
+
+        modalTitle.textContent = p.title;
+        modalDesc.textContent = p.oneLiner;
+
+        modalType.textContent = p.type;
+        modalRole.textContent = p.role;
+        modalGoal.textContent = p.goal;
+        modalTags.textContent = p.tags.join(" · ");
+
+        const fit = p.imageFit || "cover";
+        const fallbackImages = p.fallbackImages || p.images;
+        modalMainImg.dataset.fallback = fallbackImages[0] || "";
+        modalMainImg.dataset.fit = fit;
+        modalMainImg.src = p.images[0];
+        modalMainImg.alt = p.title + " 项目详情主图";
+        attachImgFallback(modalMainImg);
+
+        modalThumbs.innerHTML = p.images
+          .map((src, idx) => {
+            const current = idx === 0 ? "true" : "false";
+            const fb = fallbackImages[idx] || src;
+            return `
+<button class="thumb" type="button" aria-current="${current}" aria-label="切换到第 ${idx + 1} 张图" data-idx="${idx}">
+  <img loading="lazy" decoding="async" alt="${p.title} 缩略图 ${idx + 1}" src="${src}" data-fallback="${String(fb).replaceAll('"', "&quot;")}" data-fit="${String(fit).replaceAll('"', "&quot;")}" />
+</button>`;
+          })
+          .join("");
+        modalThumbs.querySelectorAll("img[data-fallback]").forEach((img) => attachImgFallback(img));
+
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+
+        closeBtn.focus({ preventScroll: true });
+      }
+
+      function closeModal() {
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+
+        if (lastFocus && typeof lastFocus.focus === "function") {
+          lastFocus.focus({ preventScroll: true });
+        }
+      }
+
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-open]");
+        if (btn) openModal(btn.getAttribute("data-open"));
+      });
+
+      modal.addEventListener("click", (e) => {
+        const close = e.target.closest("[data-close='true']");
+        if (close) closeModal();
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+
+      document.addEventListener("keydown", (e) => {
+        if (modal.getAttribute("aria-hidden") === "true") return;
+
+        if (e.key === "Escape") {
+          e.preventDefault();
+          closeModal();
+          return;
+        }
+
+        if (e.key === "Tab") {
+          const focusables = getFocusable(modal);
+          if (focusables.length === 0) return;
+
+          const first = focusables[0];
+          const last = focusables[focusables.length - 1];
+
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      });
+
+      modalThumbs.addEventListener("click", (e) => {
+        const thumb = e.target.closest(".thumb");
+        if (!thumb) return;
+        const idx = Number(thumb.getAttribute("data-idx") || "0");
+        const pTitle = modalTitle.textContent;
+
+        const imgEl = modalThumbs.querySelectorAll(".thumb img")[idx];
+        const src = imgEl?.getAttribute("src");
+        if (!src) return;
+
+        modalMainImg.dataset.fallback = imgEl?.dataset.fallback || "";
+        modalMainImg.dataset.fit = imgEl?.dataset.fit || "cover";
+        modalMainImg.src = src;
+        modalMainImg.alt = pTitle + " 项目详情图 " + (idx + 1);
+        attachImgFallback(modalMainImg);
+
+        modalThumbs.querySelectorAll(".thumb").forEach((t) => t.setAttribute("aria-current", "false"));
+        thumb.setAttribute("aria-current", "true");
+      });
+
+      const navEl = document.querySelector(".nav");
+      const navToggle = document.querySelector(".nav-toggle");
+      const navMenu = document.getElementById("siteNav");
+
+      function isMobileNav() {
+        return window.matchMedia("(max-width: 640px)").matches;
+      }
+
+      function openNav({ focusFirst = false } = {}) {
+        if (!navEl || !navToggle || !navMenu) return;
+        navEl.classList.add("is-open");
+        navToggle.setAttribute("aria-expanded", "true");
+        navToggle.setAttribute("aria-label", "关闭导航");
+        if (focusFirst) {
+          const firstLink = navMenu.querySelector("a");
+          if (firstLink) firstLink.focus({ preventScroll: true });
+        }
+      }
+
+      function closeNav({ focusToggle = false } = {}) {
+        if (!navEl || !navToggle) return;
+        navEl.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute("aria-label", "打开导航");
+        if (focusToggle) navToggle.focus({ preventScroll: true });
+      }
+
+      if (navToggle) {
+        navToggle.addEventListener("click", () => {
+          if (!isMobileNav()) return;
+          const open = navEl?.classList.contains("is-open");
+          if (open) closeNav();
+          else openNav({ focusFirst: false });
+        });
+      }
+
+      document.addEventListener("click", (e) => {
+        if (!isMobileNav()) return;
+        if (!navEl?.classList.contains("is-open")) return;
+        const insideNav = e.target.closest(".nav");
+        if (insideNav) return;
+        closeNav();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (!isMobileNav()) return;
+        if (e.key !== "Escape") return;
+        if (!navEl?.classList.contains("is-open")) return;
+        e.preventDefault();
+        closeNav({ focusToggle: true });
+      });
+
+      window.addEventListener("resize", () => {
+        if (!navEl) return;
+        if (!isMobileNav()) closeNav();
+      });
+
+      /* =========================
+        锚点滚动：为 sticky nav 做轻微修正（避免标题被遮挡）
+      ========================= */
+      function scrollToHash(hash) {
+        const el = document.querySelector(hash);
+        if (!el) return;
+        const top = el.getBoundingClientRect().top + window.scrollY - (parseInt(getComputedStyle(document.documentElement).getPropertyValue("--nav-h")) + 16);
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const href = a.getAttribute("href");
+          if (!href || href === "#") return;
+          const target = document.querySelector(href);
+          if (!target) return;
+          e.preventDefault();
+          history.pushState(null, "", href);
+          scrollToHash(href);
+          if (isMobileNav()) closeNav();
+        });
+      });
+
+      /* =========================
+        导航高亮：滚动时更新 aria-current
+      ========================= */
+      const navAnchors = Array.from(document.querySelectorAll(".navlinks a"));
+      const sectionIds = navAnchors.map((a) => a.getAttribute("href")).filter(Boolean);
+
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          const inView = entries
+            .filter((x) => x.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+          if (!inView) return;
+          const id = "#" + inView.target.id;
+
+          navAnchors.forEach((a) => a.setAttribute("aria-current", a.getAttribute("href") === id ? "true" : "false"));
+        },
+        { root: null, threshold: [0.22, 0.36, 0.5], rootMargin: "-18% 0px -70% 0px" }
+      );
+
+      sectionIds.forEach((hash) => {
+        const el = document.querySelector(hash);
+        if (el) sectionObserver.observe(el);
+      });
+
+      /* =========================
+        Reveal：分区块渐入（克制）
+      ========================= */
+      const revealEls = Array.from(document.querySelectorAll(".reveal"));
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-in");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      revealEls.forEach((el) => revealObserver.observe(el));
+
+      /* =========================
+        Skills Bar：进入视口后填充
+      ========================= */
+      const fills = Array.from(document.querySelectorAll(".fill"));
+      const barsObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            fills.forEach((f) => {
+              const v = Math.max(0, Math.min(100, Number(f.dataset.value || "0")));
+              f.style.width = v + "%";
+            });
+            barsObserver.disconnect();
+          });
+        },
+        { threshold: 0.25 }
+      );
+      const barRoot = document.getElementById("skillBars");
+      if (barRoot) barsObserver.observe(barRoot);
+
+      /* =========================
+        Contact：复制邮箱
+      ========================= */
+      const emailText = document.getElementById("emailText");
+      const copyEmailBtn = document.getElementById("copyEmailBtn");
+
+      copyEmailBtn.addEventListener("click", async () => {
+        const email = emailText.textContent.trim();
+        if (!email) return;
+
+        try {
+          await navigator.clipboard.writeText(email);
+          const prev = copyEmailBtn.textContent;
+          copyEmailBtn.textContent = "已复制";
+          setTimeout(() => (copyEmailBtn.textContent = prev), 1200);
+        } catch {
+          const prev = copyEmailBtn.textContent;
+          copyEmailBtn.textContent = "复制失败";
+          setTimeout(() => (copyEmailBtn.textContent = prev), 1200);
+        }
+      });
+
+      /* =========================
+        Footer：年份 & 回到顶部
+      ========================= */
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      document.getElementById("backToTopBtn").addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      /* =========================
+        初次打开带 hash：对齐 sticky nav
+      ========================= */
+      window.addEventListener("load", () => {
+        if (location.hash) scrollToHash(location.hash);
+      });
+    </script>
+  </body>
+</html>
